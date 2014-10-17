@@ -1,0 +1,30 @@
+<h1>Listing listings</h1>
+
+<!-- <table> -->
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.name %></td>
+        <td><%= listing.description %></td>
+        <td><%= listing.price %></td>
+        <td><%= link_to 'Show', listing, class: "btn bt-link" %></td>
+        <td><%= link_to 'Edit', edit_listing_path(listing), class: "btn bt-link" %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn bt-link" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Listing', new_listing_path, class: "btn bt-link" %>
